@@ -160,3 +160,29 @@ Sebelum mulai, pastikan kamu sudah menginstal:
 ```
    http://localhost:3000/api/movies
 ```
+
+---
+
+<br />
+
+## 📄 Dokumentasi API dengan Swagger (Opsional)
+
+Jika kamu ingin menggunakan Swagger untuk dokumentasi API otomatis, ikuti langkah berikut:
+
+1. **Inisialisasi Swagger**
+   Pastikan kamu sudah mengimpor package Swagger di `main.go` dan menambahkan route untuk Swagger UI.
+
+2. **Jalankan perintah swag untuk generate dokumentasi**
+
+```bash
+   swag init
+```
+
+3. **Akses Swagger UI**
+   Buka browser dan akses:
+
+```
+   http://localhost:3000/swagger
+```
+
+---
