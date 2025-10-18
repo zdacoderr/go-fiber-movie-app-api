@@ -30,7 +30,7 @@ definitions:
 info:
   contact: {}
 paths:
-  /movies:
+  /api/movies:
     get:
       consumes:
       - application/json
@@ -82,7 +82,7 @@ paths:
       summary: Create a movie
       tags:
       - movies
-  /movies/{id}:
+  /api/movies/{id}:
     delete:
       consumes:
       - application/json

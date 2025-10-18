@@ -4,7 +4,7 @@
         "contact": {}
     },
     "paths": {
-        "/movies": {
+        "/api/movies": {
             "get": {
                 "description": "get list of all movies",
                 "consumes": [
@@ -83,7 +83,7 @@
                 }
             }
         },
-        "/movies/{id}": {
+        "/api/movies/{id}": {
             "get": {
                 "description": "get movie by ID",
                 "consumes": [

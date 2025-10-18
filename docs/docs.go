@@ -15,7 +15,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/movies": {
+        "/api/movies": {
             "get": {
                 "description": "get list of all movies",
                 "consumes": [
@@ -94,7 +94,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/movies/{id}": {
+        "/api/movies/{id}": {
             "get": {
                 "description": "get movie by ID",
                 "consumes": [

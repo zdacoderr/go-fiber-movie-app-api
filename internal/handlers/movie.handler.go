@@ -21,8 +21,7 @@ import (
 // @Success      200  {object}  utils.SuccessResponse "Movies fetched successfully"
 // @Failure      204	{object}  utils.ErrorResponse "Movies data is empty"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to fetch movies"
-// @BasePath     /api
-// @Router       /movies [get]
+// @Router       /api/movies [get]
 func ListMovies(ctx *fiber.Ctx) error {
 	// initialize a slice to hold movies
 	var movies []models.Movie
@@ -51,8 +50,7 @@ func ListMovies(ctx *fiber.Ctx) error {
 // @Success      200  {object}  utils.SuccessResponse "Movie fetched successfully"
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to fetch movie"
-// @BasePath     /api
-// @Router       /movies/{id} [get]
+// @Router       /api/movies/{id} [get]
 func GetMovie(ctx *fiber.Ctx) error {
 	// get movie ID from URL parameters
 	id := ctx.Params("id")
@@ -82,8 +80,7 @@ func GetMovie(ctx *fiber.Ctx) error {
 // @Success      201  {object}  utils.SuccessResponse "Movie created successfully"
 // @Failure      400  {object}  utils.ErrorResponse "Invalid request body or validation failed"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to create movie"
-// @BasePath     /api
-// @Router       /movies [post]
+// @Router       /api/movies [post]
 func CreateMovie(ctx *fiber.Ctx) error {
 	// initialize a new movie instance
 	movie := new(models.Movie)
@@ -128,8 +125,7 @@ func CreateMovie(ctx *fiber.Ctx) error {
 // @Failure      400  {object}  utils.ErrorResponse "Invalid request body or validation failed"
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to update movie"
-// @BasePath     /api
-// @Router       /movies/{id} [put]
+// @Router       /api/movies/{id} [put]
 func UpdateMovie(ctx *fiber.Ctx) error {
 	// get movie ID from URL parameters
 	id := ctx.Params("id")
@@ -181,8 +177,7 @@ func UpdateMovie(ctx *fiber.Ctx) error {
 // @Success      200  {object}  utils.SuccessResponse "Movie deleted successfully"
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to delete movie"
-// @BasePath     /api
-// @Router       /movies/{id} [delete]
+// @Router       /api/movies/{id} [delete]
 func DeleteMovie(ctx *fiber.Ctx) error {
 	// get movie ID from URL parameters
 	id := ctx.Params("id")
