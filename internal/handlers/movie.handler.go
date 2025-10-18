@@ -14,8 +14,7 @@ import (
 // @Success      200  {object}  utils.SuccessResponse "Movies fetched successfully"
 // @Failure      204	{object}  utils.ErrorResponse "Movies data is empty"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to fetch movies"
-// @BasePath     /api
-// @Router       /movies [get]
+// @Router       /api/movies [get]
 func ListMovies(ctx *fiber.Ctx) error {
 	return utils.OKResponse(ctx, "Movies fetched successfully", nil)
 }
@@ -30,8 +29,7 @@ func ListMovies(ctx *fiber.Ctx) error {
 // @Success      200  {object}  utils.SuccessResponse "Movie fetched successfully"
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to fetch movie"
-// @BasePath     /api
-// @Router       /movies/{id} [get]
+// @Router       /api/movies/{id} [get]
 func GetMovie(ctx *fiber.Ctx) error {
 	return utils.OKResponse(ctx, "Movie fetched successfully", nil)
 }
@@ -46,8 +44,7 @@ func GetMovie(ctx *fiber.Ctx) error {
 // @Success      201  {object}  utils.SuccessResponse "Movie created successfully"
 // @Failure      400  {object}  utils.ErrorResponse "Invalid request body or validation failed"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to create movie"
-// @BasePath     /api
-// @Router       /movies [post]
+// @Router       /api/movies [post]
 func CreateMovie(ctx *fiber.Ctx) error {
 	return utils.CreatedResponse(ctx, "Movie Created successfully", nil)
 }
@@ -64,8 +61,7 @@ func CreateMovie(ctx *fiber.Ctx) error {
 // @Failure      400  {object}  utils.ErrorResponse "Invalid request body or validation failed"
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to update movie"
-// @BasePath     /api
-// @Router       /movies/{id} [put]
+// @Router       /api/movies/{id} [put]
 func UpdateMovie(ctx *fiber.Ctx) error {
 	return utils.OKResponse(ctx, "Movie Updated successfully", nil)
 }
@@ -80,8 +76,7 @@ func UpdateMovie(ctx *fiber.Ctx) error {
 // @Success      200  {object}  utils.SuccessResponse "Movie deleted successfully"
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to delete movie"
-// @BasePath     /api
-// @Router       /movies/{id} [delete]
+// @Router       /api/movies/{id} [delete]
 func DeleteMovie(ctx *fiber.Ctx) error {
 	return utils.OKResponse(ctx, "Movie Deleted successfully", nil)
 }

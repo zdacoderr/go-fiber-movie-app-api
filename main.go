@@ -8,8 +8,8 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/zdacoder/go-fiber-movie-app-api/config"
 	"github.com/zdacoder/go-fiber-movie-app-api/config/database"
-	_ "github.com/zdacoder/go-fiber-movie-app-api/docs"
-	"github.com/zdacoder/go-fiber-movie-app-api/internal/models"
+	// _ "github.com/zdacoder/go-fiber-movie-app-api/docs"
+	// "github.com/zdacoder/go-fiber-movie-app-api/internal/models"
 	"github.com/zdacoder/go-fiber-movie-app-api/internal/routes"
 	"github.com/zdacoder/go-fiber-movie-app-api/internal/validators"
 	"github.com/zdacoder/go-fiber-movie-app-api/pkg/logger"
@@ -26,7 +26,7 @@ func main() {
 	database.Connect(config)
 
 	// Run database migrations
-	database.Migrate(&models.Movie{})
+	// database.Migrate(&models.Movie{})
 
 	// Create a new Fiber instance
 	app := fiber.New(fiber.Config{
