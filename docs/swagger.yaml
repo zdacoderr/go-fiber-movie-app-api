@@ -1,0 +1,180 @@
+definitions:
+  models.Movie:
+    type: object
+  utils.ErrorResponse:
+    properties:
+      code:
+        example: 400
+        type: integer
+      error: {}
+      message:
+        example: Invalid request parameters
+        type: string
+      status:
+        example: error
+        type: string
+    type: object
+  utils.SuccessResponse:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data: {}
+      message:
+        example: Request successfully processed
+        type: string
+      status:
+        example: success
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /movies:
+    get:
+      consumes:
+      - application/json
+      description: get list of all movies
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Movies fetched successfully
+          schema:
+            $ref: '#/definitions/utils.SuccessResponse'
+        "204":
+          description: Movies data is empty
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Failed to fetch movies
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: List movies
+      tags:
+      - movies
+    post:
+      consumes:
+      - application/json
+      description: create a new movie
+      parameters:
+      - description: Movie data
+        in: body
+        name: movie
+        required: true
+        schema:
+          $ref: '#/definitions/models.Movie'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Movie created successfully
+          schema:
+            $ref: '#/definitions/utils.SuccessResponse'
+        "400":
+          description: Invalid request body or validation failed
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Failed to create movie
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Create a movie
+      tags:
+      - movies
+  /movies/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete an existing movie by ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Movie deleted successfully
+          schema:
+            $ref: '#/definitions/utils.SuccessResponse'
+        "404":
+          description: Movie not found
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Failed to delete movie
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Delete a movie
+      tags:
+      - movies
+    get:
+      consumes:
+      - application/json
+      description: get movie by ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Movie fetched successfully
+          schema:
+            $ref: '#/definitions/utils.SuccessResponse'
+        "404":
+          description: Movie not found
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Failed to fetch movie
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Get a movie
+      tags:
+      - movies
+    put:
+      consumes:
+      - application/json
+      description: update an existing movie by ID
+      parameters:
+      - description: Movie ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Updated movie data
+        in: body
+        name: movie
+        required: true
+        schema:
+          $ref: '#/definitions/models.Movie'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Movie updated successfully
+          schema:
+            $ref: '#/definitions/utils.SuccessResponse'
+        "400":
+          description: Invalid request body or validation failed
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Movie not found
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Failed to update movie
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Update a movie
+      tags:
+      - movies
+swagger: "2.0"
