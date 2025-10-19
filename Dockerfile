@@ -23,6 +23,12 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o server ./main.go
 # ======================================================
 FROM alpine:latest
 
+# Install timezone data
+RUN apk --no-cache add tzdata
+
+# Set timezone to Asia/Jakarta
+ENV TZ=Asia/Jakarta
+
 # Set working directory
 WORKDIR /app
 
