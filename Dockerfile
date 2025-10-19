@@ -16,7 +16,7 @@ RUN go mod download
 COPY . .
 
 # Build binary
-RUN CGO_ENABLED=0 GOOS=linux go build -o server ./cmd/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o server ./main.go
 
 # ======================================================
 # Stage 2: Run
