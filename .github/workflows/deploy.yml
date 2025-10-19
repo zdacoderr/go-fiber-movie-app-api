@@ -27,7 +27,7 @@ jobs:
           --health-retries=5
 
     env:
-      IMAGE_NAME: zdacoderr/go-fiber-movie-app-api
+      IMAGE_NAME: mzainuri/go-fiber-movie-app-api
       CONTAINER_NAME: go-fiber-movie-api
       PORT: 5000
 
