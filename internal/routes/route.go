@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	fiberSwagger "github.com/swaggo/fiber-swagger"
+	"github.com/gofiber/swagger"
 	"github.com/zdacoder/go-fiber-movie-app-api/internal/handlers"
 	"github.com/zdacoder/go-fiber-movie-app-api/internal/middlewares"
 )
@@ -20,7 +20,7 @@ func Init(app *fiber.App) {
 	movies.Delete("/:id", handlers.DeleteMovie)
 
 	// Swagger documentation route
-	app.Get("/swagger/*", fiberSwagger.WrapHandler)
+	app.Get("/swagger/*", swagger.HandlerDefault)
 
 	// 404 Handler for undefined routes
 	app.Use(func(c *fiber.Ctx) error {

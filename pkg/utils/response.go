@@ -47,7 +47,7 @@ func CreatedResponse(ctx *fiber.Ctx, message string, data interface{}) error {
 }
 
 func NoContentResponse(ctx *fiber.Ctx, message string) error {
-	return NewSuccessResponse(ctx, 204, message, nil)
+	return NewSuccessResponse(ctx, 200, message, nil)
 }
 
 func BadRequestResponse(ctx *fiber.Ctx, message string, err interface{}) error {
