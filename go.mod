@@ -9,7 +9,6 @@ require (
 	github.com/gofiber/swagger v1.1.1
 	github.com/joho/godotenv v1.5.1
 	github.com/rs/zerolog v1.34.0
-	github.com/swaggo/swag v1.16.6
 	gorm.io/datatypes v1.2.7
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/gorm v1.31.0
@@ -52,6 +51,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.19 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/swaggo/files/v2 v2.0.2 // indirect
+	github.com/swaggo/swag v1.16.6 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.67.0 // indirect
