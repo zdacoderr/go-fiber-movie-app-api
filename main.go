@@ -31,7 +31,7 @@ func main() {
 
 	// Create a new Fiber instance
 	app := fiber.New(fiber.Config{
-		Prefork:     true,
+		// Prefork:     true,
 		JSONEncoder: sonic.Marshal,
 		JSONDecoder: sonic.Unmarshal,
 	})
