@@ -20,7 +20,7 @@ func Init(app *fiber.App) {
 	movies.Delete("/:id", handlers.DeleteMovie)
 
 	// Swagger documentation route
-	app.Get("/swagger/*", swagger.HandlerDefault) // default config
+	app.Get("/swagger/*", swagger.HandlerDefault)
 
 	// 404 Handler for undefined routes
 	app.Use(func(c *fiber.Ctx) error {
