@@ -11,6 +11,9 @@ func Init(app *fiber.App) {
 	// Apply middlewares
 	app.Use(middlewares.LoggerMiddleware())
 
+	// CORS Middleware
+	app.Use(middlewares.CORSMiddleware())
+
 	// Movie routes
 	movies := app.Group("/api/movies")
 	movies.Get("/", handlers.ListMovies)
@@ -26,4 +29,5 @@ func Init(app *fiber.App) {
 	app.Use(func(c *fiber.Ctx) error {
 		return c.Status(404).SendString("Resource not found")
 	})
+
 }
