@@ -11,6 +11,9 @@ func Init(app *fiber.App) {
 	// Apply middlewares
 	app.Use(middlewares.LoggerMiddleware())
 
+	// CORS middleware
+	app.Use(middlewares.CORSMiddleware())
+
 	// Movie routes
 	movies := app.Group("/api/movies")
 	movies.Get("/", handlers.ListMovies)
