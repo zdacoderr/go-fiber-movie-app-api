@@ -1,63 +1,23 @@
 package utils
 
-import "github.com/gofiber/fiber/v2"
+// import packages gofiber untuk menangani response
 
-type SuccessResponse struct {
-	Code    int         `json:"code" example:"200"`
-	Status  string      `json:"status" example:"success"`
-	Message string      `json:"message" example:"Request successfully processed"`
-	Data    interface{} `json:"data"`
-}
+// Membuat struktur data untuk response sukses
 
-type ErrorResponse struct {
-	Code    int         `json:"code" example:"400"`
-	Status  string      `json:"status" example:"error"`
-	Message string      `json:"message" example:"Invalid request parameters"`
-	Error   interface{} `json:"error"`
-}
+// Membuat struktur data untuk response error
 
-func NewSuccessResponse(send *fiber.Ctx, code int, message string, data interface{}) error {
-	response := SuccessResponse{
-		Code:    code,
-		Status:  "success",
-		Message: message,
-		Data:    data,
-	}
+// Membuat fungsi untuk mengirim response sukses kepada klien
 
-	return send.Status(code).JSON(response)
-}
+// Membuat fungsi untuk mengirim response error kepada klien
 
-func NewErrorResponse(send *fiber.Ctx, code int, message string, err interface{}) error {
-	response := ErrorResponse{
-		Code:    code,
-		Status:  "error",
-		Message: message,
-		Error:   err,
-	}
+// Membuat fungsi untuk Response OK
 
-	return send.Status(code).JSON(response)
-}
+// Membuat fungsi untuk Response Created
 
-func OKResponse(ctx *fiber.Ctx, message string, data interface{}) error {
-	return NewSuccessResponse(ctx, 200, message, data)
-}
+// Membuat fungsi untuk Response No Content
 
-func CreatedResponse(ctx *fiber.Ctx, message string, data interface{}) error {
-	return NewSuccessResponse(ctx, 201, message, data)
-}
+// Membuat fungsi untuk Response Bad Request
 
-func NoContentResponse(ctx *fiber.Ctx, message string) error {
-	return NewSuccessResponse(ctx, 200, message, nil)
-}
+// Membuat fungsi untuk Response Not Found
 
-func BadRequestResponse(ctx *fiber.Ctx, message string, err interface{}) error {
-	return NewErrorResponse(ctx, 400, message, err)
-}
-
-func NotFoundResponse(ctx *fiber.Ctx, message string, err interface{}) error {
-	return NewErrorResponse(ctx, 404, message, err)
-}
-
-func InternalServerErrorResponse(ctx *fiber.Ctx, message string, err interface{}) error {
-	return NewErrorResponse(ctx, 500, message, err)
-}
+// Membuat fungsi untuk Response Internal Server Error

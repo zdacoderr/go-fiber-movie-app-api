@@ -1,34 +1,16 @@
 package database
 
-import (
-	"fmt"
+// import packages yang diperlukan
 
-	"github.com/rs/zerolog/log"
-	"github.com/zdacoder/go-fiber-movie-app-api/config"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
-)
+// Membuat variabel global DB untuk menyimpan koneksi database
 
-var DB *gorm.DB
+// Membuat fungsi Connect untuk menghubungkan ke database menggunakan konfigurasi yang diberikan
+func Connect() {
+	// Membuat Data Source Name (DSN) untuk koneksi database PostgreSQL
 
-func Connect(config *config.Config) {
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s TimeZone=%s",
-		config.DBHost,
-		config.DBPort,
-		config.DBUser,
-		config.DBPassword,
-		config.DBName,
-		config.DBSSLMode,
-		config.DBTimezone,
-	)
+	// Membuka koneksi ke database menggunakan GORM dan PostgreSQL
 
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	// jika terjadi kesalahan saat menghubungkan ke database, log error dan keluar
 
-	if err != nil {
-		log.Fatal().Err(err).Msg("Failed to connect to database")
-	} else {
-		log.Info().Msg("Database connection established")
-	}
-
-	DB = db
+	// Menyimpan koneksi database di variabel global DB
 }

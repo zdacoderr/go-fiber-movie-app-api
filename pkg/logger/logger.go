@@ -1,43 +1,18 @@
 package logger
 
-import (
-	"os"
-	"strings"
-	"time"
+// import packages yang diperlukan
 
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
-	"github.com/zdacoder/go-fiber-movie-app-api/config"
-)
+// Membuat fungsi Init untuk menginisialisasi logger berdasarkan konfigurasi yang diberikan
+func Init() {
+	// Membuat variabel level untuk menyimpan level logging
 
-func Init(config *config.Config) {
-	var level zerolog.Level
+	// Menentukan level logging berdasarkan konfigurasi
 
-	switch strings.ToLower(config.LogLevel) {
-	case "debug":
-		level = zerolog.DebugLevel
-	case "info":
-		level = zerolog.InfoLevel
-	case "warn":
-		level = zerolog.WarnLevel
-	case "error":
-		level = zerolog.ErrorLevel
-	default:
-		level = zerolog.InfoLevel
-	}
-	zerolog.SetGlobalLevel(level)
+	// Mengatur level global untuk zerolog
 
-	if config.AppEnv == "development" {
-		consoleWriter := zerolog.ConsoleWriter{
-			Out:        os.Stderr,
-			TimeFormat: time.RFC3339,
-		}
-		log.Logger = log.Output(consoleWriter)
-	} else {
-		log.Logger = zerolog.New(os.Stdout).With().Timestamp().Logger()
-	}
+	// Mengatur format output logger berdasarkan environment aplikasi
 
-	log.Logger = log.Logger.With().Str("service", "movie-app-api").Logger()
+	// Menambahkan field "service" dengan nilai "movie-app-api" ke logger
 
-	log.Info().Msgf("Logger initialized with level: %s", level)
+	// Log informasi bahwa logger telah diinisialisasi dengan level yang ditentukan
 }

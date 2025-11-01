@@ -1,15 +1,12 @@
 package database
 
-import "github.com/rs/zerolog/log"
+// import packages zerolog untuk logging dan gorm untuk migrasi
 
-func Migrate(models ...interface{}) {
-	if DB == nil {
-		log.Fatal().Msg("Database connection is not established")
-	}
+// Membuat fungsi Migrate untuk menjalankan migrasi database
+func Migrate() {
+	// jika koneksi database belum terinisialisasi, log error dan keluar
 
-	if err := DB.AutoMigrate(models...); err != nil {
-		log.Fatal().Err(err).Msg("Database migration failed")
-	}
+	// Menjalankan migrasi otomatis untuk model yang diberikan menggunakan GORM jika terjadi kesalahan, log error dan keluar
 
-	log.Info().Msg("Database migration completed successfully")
+	// Log informasi bahwa migrasi database berhasil
 }

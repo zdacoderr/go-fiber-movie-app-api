@@ -1,9 +1,6 @@
 package handlers
 
-import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/zdacoder/go-fiber-movie-app-api/pkg/utils"
-)
+// import packages yang diperlukan
 
 // ListMovies godoc
 // @Summary      List movies
@@ -15,8 +12,7 @@ import (
 // @Failure      204	{object}  utils.ErrorResponse "Movies data is empty"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to fetch movies"
 // @Router       /api/movies [get]
-func ListMovies(ctx *fiber.Ctx) error {
-	return utils.OKResponse(ctx, "Movies fetched successfully", nil)
+func ListMovies() {
 }
 
 // GetMovie godoc
@@ -30,8 +26,7 @@ func ListMovies(ctx *fiber.Ctx) error {
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to fetch movie"
 // @Router       /api/movies/{id} [get]
-func GetMovie(ctx *fiber.Ctx) error {
-	return utils.OKResponse(ctx, "Movie fetched successfully", nil)
+func GetMovie() {
 }
 
 // CreateMovie godoc
@@ -45,8 +40,7 @@ func GetMovie(ctx *fiber.Ctx) error {
 // @Failure      400  {object}  utils.ErrorResponse "Invalid request body or validation failed"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to create movie"
 // @Router       /api/movies [post]
-func CreateMovie(ctx *fiber.Ctx) error {
-	return utils.CreatedResponse(ctx, "Movie Created successfully", nil)
+func CreateMovie() {
 }
 
 // UpdateMovie godoc
@@ -62,8 +56,7 @@ func CreateMovie(ctx *fiber.Ctx) error {
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to update movie"
 // @Router       /api/movies/{id} [put]
-func UpdateMovie(ctx *fiber.Ctx) error {
-	return utils.OKResponse(ctx, "Movie Updated successfully", nil)
+func UpdateMovie() {
 }
 
 // DeleteMovie godoc
@@ -77,6 +70,5 @@ func UpdateMovie(ctx *fiber.Ctx) error {
 // @Failure      404  {object}  utils.ErrorResponse "Movie not found"
 // @Failure      500  {object}  utils.ErrorResponse "Failed to delete movie"
 // @Router       /api/movies/{id} [delete]
-func DeleteMovie(ctx *fiber.Ctx) error {
-	return utils.OKResponse(ctx, "Movie Deleted successfully", nil)
+func DeleteMovie() {
 }

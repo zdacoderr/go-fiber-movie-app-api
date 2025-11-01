@@ -1,14 +1,7 @@
 package middlewares
 
-import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-)
+// import packages yang diperlukan
 
-func CORSMiddleware() fiber.Handler {
-	return cors.New(cors.Config{
-		AllowOrigins: "*",
-		AllowMethods: "GET, POST, PUT, DELETE",
-		AllowHeaders: "Content-Type",
-	})
+// Membuat fungsi middleware CORS untuk mengatur kebijakan berbagi sumber daya lintas asal
+func CORSMiddleware() {
 }

@@ -1,59 +1,20 @@
 package config
 
-import (
-	"os"
+// import packages yang diperlukan
 
-	"github.com/joho/godotenv"
-	"github.com/rs/zerolog/log"
-)
-
+// Membuat struct Config untuk menyimpan konfigurasi aplikasi
 type Config struct {
-	AppEnv   string
-	LogLevel string
-
-	ServerHost string
-	ServerPort string
-
-	DBHost     string
-	DBPort     string
-	DBUser     string
-	DBPassword string
-	DBName     string
-	DBSSLMode  string
-	DBTimezone string
 }
 
+// Membuat fungsi Load untuk memuat konfigurasi dari variabel lingkungan
+// Mengembalikan pointer ke struct Config
 func Load() *Config {
-	isDev := os.Getenv("APP_ENV") != "production"
+	// Cek apakah aplikasi berjalan dalam mode pengembangan
 
-	if isDev {
-		if err := godotenv.Load(); err != nil {
-			log.Warn().Err(err).Msg("Error loading .env file")
-		} else {
-			log.Info().Msg(".env file loaded successfully")
-		}
-	}
+	// Muat file .env jika dalam mode pengembangan
 
-	return &Config{
-		AppEnv:   getEnv("APP_ENV", "development"),
-		LogLevel: getEnv("LOG_LEVEL", "info"),
-
-		ServerHost: getEnv("SERVER_HOST", "localhost"),
-		ServerPort: getEnv("SERVER_PORT", "3000"),
-
-		DBHost:     getEnv("DB_HOST", "localhost"),
-		DBPort:     getEnv("DB_PORT", "5432"),
-		DBUser:     getEnv("DB_USER", "postgres"),
-		DBPassword: getEnv("DB_PASSWORD", "password"),
-		DBName:     getEnv("DB_NAME", "movie_app"),
-		DBSSLMode:  getEnv("DB_SSLMODE", "disable"),
-		DBTimezone: getEnv("DB_TIMEZONE", "UTC"),
-	}
+	// Mengembalikan konfigurasi yang diambil dari variabel lingkungan
+	return &Config{}
 }
 
-func getEnv(key, defaultValue string) string {
-	if value, exists := os.LookupEnv(key); exists {
-		return value
-	}
-	return defaultValue
-}
+// Membuat fungsi pembantu untuk mendapatkan variabel lingkungan dengan nilai default
