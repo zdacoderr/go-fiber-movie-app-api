@@ -1,9 +1,9 @@
 # 🎬 Go Fiber Movie App API — Starter Pack
 
-> Pra StudyJam Web Development 2025 - GDGoC STT-NF
+> StudyJam Web Development 2025 - GDGoC STT-NF
 
 Selamat datang di **Starter Pack Movie App API**!  
-Project ini dibuat khusus untuk peserta **Pra StudyJam Web Development 2025** sebagai bahan latihan membuat **RESTful API dengan Go Fiber dan PostgreSQL**.
+Project ini dibuat khusus untuk peserta **StudyJam Web Development 2025** sebagai bahan latihan membuat **RESTful API dengan Go Fiber dan PostgreSQL**.
 
 ---
 
